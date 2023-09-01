@@ -21,6 +21,10 @@
             background-color: white;
             color: black;
         }
+        .active-tab {
+            background-color: #FF1F3D;
+            color: white;
+        }
     </style>
 </head>
 
@@ -30,16 +34,16 @@
         <div
             class="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-auto pt-4 pb-3 lg:pt-12 lg:pb-8 px-14">
             <img src="./icons/Logo.png" alt="PH logo">
-            <button class="btn px-5 py-2 bg-[#25252533] text-black border-none hover:bg-[#25252559]"
+            <button class="btn btn-sm md:btn-md bg-[#25252533] text-black border-none hover:bg-[#25252559]"
                 id="sort-by-views">Sort by
                 view</button>
-            <button onclick="location.href= './blog.html'" class="btn px-5 py-2 bg-[#FF1F3D] text-white border-none hover:bg-[#ff1f3dcc]">Blog</button>
+            <button onclick="location.href= './blog.html'" class="btn btn-sm md:btn-md bg-[#FF1F3D] text-white border-none hover:bg-[#ff1f3dcc]">Blog</button>
         </div>
         <hr>
     </head>
     <main>
         <div class="tabs flex justify-center py-4 md:py-6 lg:py-8 gap-3" id="tabs-container">
-            <!-- <a onclick="" class="tab bg-[#25252533] text-black border-none">Tab....</a> -->
+            <!-- <a onclick="" class="tab bg-[#25252533] text-black border-none tab-active">Tab....</a> -->
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-auto-rows-[1fr] place-items-center gap-4 px-14"
             id="cards-container">

@@ -4,7 +4,7 @@ const handleApi = async () => {
     const tabsContainer = document.getElementById("tabs-container");
     data.data.forEach(element => {
         const newTab = document.createElement("div");
-        newTab.innerHTML = `<a onclick="appendById('${element.category_id}')" class="tab bg-[#25252533] hover:bg-[#25252550] text-black border-none rounded-md">${element.category}</a>`;
+        newTab.innerHTML = `<a onclick="appendById('${element.category_id}')" class="tab tab-sm md:tab-md bg-[#25252533] text-black border-none rounded-md">${element.category}</a>`;
         tabsContainer.appendChild(newTab);
     });
     appendById(1000);
@@ -17,7 +17,7 @@ const cardsContainer = document.getElementById("cards-container");
 async function appendById(id) {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
-    console.log(data.data);
+    // console.log(data.data);
     appendData(data.data);
 
     const sortedData = [...data.data];
@@ -32,7 +32,6 @@ async function appendById(id) {
         appendData(sortedData);
     });
 
-    console.log(sortedData);
 };
 
 async function appendData(dataToAppend) {
@@ -40,30 +39,27 @@ async function appendData(dataToAppend) {
     cardsContainer.innerHTML = ``;
     dataToAppend.forEach(element => {
         const postedDate = parseFloat(element.others?.posted_date);
-        console.log(postedDate);
 
         let seconds = postedDate;
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
         seconds = seconds % 60;
         minutes = minutes % 60;
-        console.log(hours);
-        console.log(minutes);
         const newCard = document.createElement("div");
-        newCard.className = "card bg-white shadow-xl p-2 w-80 h-full";
+        newCard.className = "card bg-white shadow-xl w-80 lg:w-72 xl:w-80 h-full";
         newCard.innerHTML = `
-            <figure class="h-48 relative">
+            <figure class="h-48 relative px-2 md:px-0 rounded-lg">
                 <img src="${element.thumbnail}" alt="" class="w-full h-full" />
-                <div class="absolute right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">${isNaN(hours) ? 0 : padTo2Digits(hours)}hrs ${isNaN(minutes) ? 0 : padTo2Digits(minutes)}mins ago</div>
+                <div class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">${isNaN(hours) ? 0 : padTo2Digits(hours)}hrs ${isNaN(minutes) ? 0 : padTo2Digits(minutes)}mins ago</div>
             </figure>
-            <div class="card-body px-0">
+            <div class="card-body px-2">
                 <div class="flex justify-start items-start gap-3">
                     <figure class="h-12 w-12"><img src="${element.authors[0]?.profile_picture}" alt="" class="h-12 w-12 rounded-[50%]" /></figure>
                     <div>
                         <h2 class="card-title font-bold text-base">${element.title}</h2>
                         <div class="flex justify-start items-center gap-2">
                             <span class="font-normal text-sm text-[#171717B2]">${element.authors[0]?.profile_name}</span> <img
-                                src="./icons/fi_10629607.png" alt="">
+                                src="${(!(element.authors[0]?.verified)) ? '' : './icons/fi_10629607.png'}" alt="">
                         </div>
                         <span class="font-normal text-sm text-[#171717B2]">${element.others?.views}</span>
                     </div>
