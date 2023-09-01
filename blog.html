@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
+    <!-- Tailwind & DaisyUi -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSSs -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: black;
+            background-color: white;
+        }
+        span {
+            color: rgb(255, 121, 97);
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        class="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-auto pt-4 pb-3 lg:pt-12 lg:pb-8 px-14">
+        <img src="./icons/Logo.png" alt="PH logo">
+        <button onclick="location.href= './index.html'"
+            class="btn px-5 py-2 bg-[#FF1F3D] text-white border-none hover:bg-[#ff1f3dcc]">Go back</button>
+    </div>
+    <hr>
+    <section class="p-8">
+        <h1 class="font-bold text-lg md:text-2xl text-green-600">The scope of <span>var</span>, <span>let</span>, and
+            <span>const</span>:
+        </h1>
+        <figure class="table table-xs md:table-lg ">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text-xl"><strong>var</strong></th>
+                        <th class="text-xl"><strong>let</strong></th>
+                        <th class="text-xl"><strong>const</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>The scope of a var variable is functional scope.</td>
+                        <td>The scope of a let variable is block scope.</td>
+                        <td>The scope of a const variable is block scope.</td>
+                    </tr>
+                    <tr>
+                        <td>It can be updated and re-declared into the scope.</td>
+                        <td>It can be updated but cannot be re-declared into the scope.</td>
+                        <td>It cannot be updated or re-declared into the scope.</td>
+                    </tr>
+                    <tr>
+                        <td>It can be declared without initialization.</td>
+                        <td>It can be declared without initialization.</td>
+                        <td>It cannot be declared without initialization.</td>
+                    </tr>
+                    <tr>
+                        <td>It can be accessed without initialization as its default value is “undefined”.</td>
+                        <td>It cannot be accessed without initialization otherwise it will give ‘referenceError’.</td>
+                        <td>It cannot be accessed without initialization, as it cannot be declared without
+                            initialization.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>hoisting done, with initializing as "default" value</td>
+                        <td>Hoisting is done, but not initialized (this is the reason for the error when we access the
+                            let
+                            variable before declaration/initialization)</td>
+                        <td>Hoisting is done, but not initialized (this is the reason for the error when we access the
+                            const
+                            variable before declaration/initialization)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+        <h1 class="font-bold text-2xl text-green-600">the use cases of <span>null</span>, and
+            <span>undefined</span>:
+        </h1>
+        <figure class="table table-xs md:table-lg">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="text-xl">&nbsp;</td>
+                        <td class="text-xl"><strong>Undefined</strong></td>
+                        <td class="text-xl"><strong>NULL</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1.</strong></td>
+                        <td>Undefined means a variable has been declared but has yet not been assigned a value.</td>
+                        <td>Null is an assignment value. It can be assigned to a variable as a representation of no
+                            value.&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2.</strong></td>
+                        <td>It is an ECMAScript1 (ES1) feature.</td>
+                        <td>It is a Primitive value in Javascript</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.</strong></td>
+                        <td>
+                            <p>Its supported browsers are -:</p>
+                            <p>Chrome , Microsoft Edge , Internet Explorer , Firefox , Safari , Opera Mini</p>
+                        </td>
+                        <td>
+                            <p>Its syntax is -:</p>
+                            <p><strong>null</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4.</strong></td>
+                        <td>It is a global property.</td>
+                        <td>
+                            <p>Its supported browsers are -:</p>
+                            <p>Chrome , Microsoft Edge , Internet Explorer , Firefox , Safari , Opera Mini</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+        <h1 class="font-bold text-2xl text-green-600">REST API (RESTful API):</h1>
+        <p class="text-lg">A RESTful API is an architectural style for an application program interface (API) that uses HTTP requests to access and use data. That data can be used to GET, PUT, POST and DELETE data types, which refers to the reading, updating, creating and deleting of operations concerning resources.</p>
+    </section>
+</body>
+
+</html>
