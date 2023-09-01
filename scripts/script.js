@@ -45,12 +45,13 @@ async function appendData(dataToAppend) {
         let hours = Math.floor(minutes / 60);
         seconds = seconds % 60;
         minutes = minutes % 60;
+        let time = `${padTo2Digits(hours)}hrs ${padTo2Digits(minutes)}mins ago`;
         const newCard = document.createElement("div");
         newCard.className = "card bg-white shadow-xl w-80 lg:w-72 xl:w-80 h-full";
         newCard.innerHTML = `
             <figure class="h-48 relative px-2 md:px-0 rounded-lg">
                 <img src="${element.thumbnail}" alt="" class="w-full h-full" />
-                <div class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">${isNaN(hours) ? 0 : padTo2Digits(hours)}hrs ${isNaN(minutes) ? 0 : padTo2Digits(minutes)}mins ago</div>
+                <div class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">${isNaN(hours) ? '' : time}</div>
             </figure>
             <div class="card-body px-2">
                 <div class="flex justify-start items-start gap-3">
