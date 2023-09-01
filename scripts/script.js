@@ -9,37 +9,26 @@ const handleApi = async () => {
     });
     appendById(1000);
 }
-
 handleApi();
-
 const cardsContainer = document.getElementById("cards-container");
-
 async function appendById(id) {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
-    // console.log(data.data);
     appendData(data.data);
-
     const sortedData = [...data.data];
-
     (sortedData).sort((a, b) => {
         const elementA = parseFloat(a.others.views);
         const elementB = parseFloat(b.others.views);
         return elementB - elementA;
     })
-
     document.getElementById("sort-by-views").addEventListener('click', function () {
         appendData(sortedData);
     });
-
 };
-
 async function appendData(dataToAppend) {
-
     cardsContainer.innerHTML = ``;
     dataToAppend.forEach(element => {
         const postedDate = parseFloat(element.others?.posted_date);
-
         let seconds = postedDate;
         let minutes = Math.floor(seconds / 60);
         let hours = Math.floor(minutes / 60);
@@ -79,7 +68,19 @@ async function appendData(dataToAppend) {
         cardsContainer.appendChild(newCard);
     }
 };
-
 function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
 }
+const tabsActive = document.querySelectorAll('.tab');
+tabsActive.forEach(activatedTab => {
+    activatedTab.addEventListener('click', () => {
+        tabsActive.forEach(element => {
+            if (element.classList.contains('text-white')) {
+                element.classList.remove('bg-[#FF1F3D]', 'text-white');
+                element.classList.add('bg-[#25252533]', 'text-black');
+            }
+        });
+        activatedTab.classList.remove('bg-[#25252533]', 'text-black');
+        activatedTab.classList.add('bg-[#FF1F3D]', 'text-white');
+    });
+});

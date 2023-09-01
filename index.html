@@ -35,29 +35,28 @@
         <div
             class="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-auto pt-4 pb-3 lg:pt-12 lg:pb-8 px-14">
             <img src="./icons/Logo.png" alt="PH logo">
-            <button class="btn btn-sm md:btn-md bg-[#25252533] text-black border-none hover:bg-[#25252559]"
+            <button class="btn bg-[#25252533] text-black border-none hover:bg-[#25252559] font-medium text-lg px-5 py-2"
                 id="sort-by-views">Sort by
                 view</button>
             <button onclick="location.href= './blog.html'"
-                class="btn btn-sm md:btn-md bg-[#FF1F3D] text-white border-none hover:bg-[#ff1f3dcc]">Blog</button>
+                class="btn bg-[#FF1F3D] text-white border-none hover:bg-[#ff1f3dcc] font-medium text-lg px-5 py-2">Blog</button>
         </div>
         <hr>
     </head>
     <main>
         <div class="tabs flex justify-center py-4 md:py-6 lg:py-8 gap-3" id="tabs-container">
-            <!-- <a onclick="" class="tab bg-[#25252533] text-black border-none tab-active">Tab....</a> -->
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-auto-rows-[1fr] place-items-center gap-4 px-14"
             id="cards-container">
             <!-- card start -->
-            <!-- <div class="card bg-white shadow-xl p-2 w-80 h-full">
-                <figure class="h-48 relative">
+            <!-- <div class="card bg-white shadow-xl w-80 lg:w-72 xl:w-80 h-full">
+                <figure class="h-48 relative px-2 md:px-0 rounded-lg">
                     <img src="${element.thumbnail}" alt="" class="w-full h-full" />
                     <div
-                        class="absolute right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">
-                        3hr 2mins 12secs</div>
+                        class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">
+                        ${isNaN(hours) ? '' : time}</div>
                 </figure>
-                <div class="card-body px-0">
+                <div class="card-body px-2">
                     <div class="flex justify-start items-start gap-3">
                         <figure class="h-12 w-12"><img src="${element.authors[0]?.profile_picture}" alt=""
                                 class="h-12 w-12 rounded-[50%]" /></figure>
@@ -66,7 +65,7 @@
                             <div class="flex justify-start items-center gap-2">
                                 <span
                                     class="font-normal text-sm text-[#171717B2]">${element.authors[0]?.profile_name}</span>
-                                <img src="./icons/fi_10629607.png" alt="">
+                                <img src="${(!(element.authors[0]?.verified)) ? '' : './icons/fi_10629607.png'}" alt="">
                             </div>
                             <span class="font-normal text-sm text-[#171717B2]">${element.others?.views}</span>
                         </div>
