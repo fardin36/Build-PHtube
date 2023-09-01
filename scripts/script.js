@@ -36,7 +36,7 @@ async function appendData(dataToAppend) {
         minutes = minutes % 60;
         let time = `${padTo2Digits(hours)}hrs ${padTo2Digits(minutes)}mins ago`;
         const newCard = document.createElement("div");
-        newCard.className = "card bg-white shadow-xl w-80 lg:w-72 xl:w-80 h-full";
+        newCard.className = "card bg-white shadow-xl w-80 lg:w-72 h-full";
         newCard.innerHTML = `
             <figure class="h-48 relative px-2 md:px-0 rounded-lg">
                 <img src="${element.thumbnail}" alt="" class="w-full h-full" />
