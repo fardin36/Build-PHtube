@@ -60,7 +60,7 @@ async function appendData(dataToAppend) {
     });
     if (cardsContainer.innerHTML == '') {
         const newCard = document.createElement("div");
-        newCard.className = "col-span-1 md:col-span-3 flex flex-col justify-center items-center py-0 md:py-24 lg:py-32 2xl:py-52"
+        newCard.className = "col-span-1 md:col-span-3 xl:col-span-4 flex flex-col justify-center items-center py-0 md:py-24 lg:py-32 2xl:py-52"
         newCard.innerHTML = `
             <img src="./icons/Icon.png" alt="">
             <p class="font-bold text-3xl text-center">Oops!! Sorry, There is no content here</p>
