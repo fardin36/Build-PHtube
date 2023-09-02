@@ -40,7 +40,7 @@ async function appendData(dataToAppend) {
         newCard.innerHTML = `
             <figure class="h-48 relative px-2 md:px-0 rounded-lg">
                 <img src="${element.thumbnail}" alt="" class="w-full h-full" />
-                <div class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] px-1 py-1 rounded">${isNaN(hours) ? '' : time}</div>
+                <div class="absolute right-2 md:right-0 bottom-0 font-normal text-xs text-white bg-[#171717] ${isNaN(hours) ? 'p-0' : 'p-1'} rounded">${isNaN(hours) ? '' : time}</div>
             </figure>
             <div class="card-body px-2">
                 <div class="flex justify-start items-start gap-3">
